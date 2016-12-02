@@ -1,16 +1,39 @@
-html, body {
-    height: 100%;
-    width: 100%;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html,body{
+    margin:0;
+    height:100%;
+    overflow:hidden;
 }
-#background {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body {
+    font-family: 'Raleway', sans-serif;
+}
+.bg-image{
+    min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    position:absolute;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+    z-index: -1;
+}
+.monsoon-main {
+    
 }
 .monsoon-panel {
    background-color: white;
+   border: 1px solid silver;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
+-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
+box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
+   
 }
+
+/* when hiding the picture */
+.ng-hide-add         { animation:.5s fadeOut ease; }
+
+/* when showing the picture */
+.ng-hide-remove      { animation:0.5s fadeIn; }
