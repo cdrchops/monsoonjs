@@ -1,0 +1,13 @@
+{"development": {
+    "dialect": "sqlite",
+    "storage": "./monsoon.db"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "./monsoon.db"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "./monsoon.db"
+  }
+}
