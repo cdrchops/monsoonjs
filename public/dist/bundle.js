@@ -55513,6 +55513,7 @@
 	function adminCtrl(gpioSvc) {
 	    var vm = this;
 	    vm.pinActions = pinActions;
+	    vm.allPinActions = allPinActions;
 	    vm.zones = [{
 	        id: 1,
 	        name: 'Zone 1',
@@ -55554,8 +55555,12 @@
 	        description: 'a Zone',
 	        active: false
 	    }];
+
 	    function pinActions(index, pin, action) {
-	        return gpioSvc.set({ pin: pin, action: action }).$promise.then(function (res) {
+	        return gpioSvc.set({
+	            pin: pin,
+	            action: action
+	        }).$promise.then(function (res) {
 	            console.log(res);
 	            var actionResult = true;
 	            if (action.toLowerCase() === 'off') {
@@ -55564,7 +55569,22 @@
 	            vm.zones[index].active = actionResult;
 	        });
 	    }
-	    console.log(vm.zones);
+
+	    function allPinActions(action) {
+	        return gpioSvc.set({
+	            pin: 'all',
+	            action: action
+	        }).$promise.then(function (res) {
+	            console.log(res);
+	            var actionResult = true;
+	            if (action.toLowerCase() === 'off') {
+	                actionResult = false;
+	            }
+	            vm.zones.map(function (zone) {
+	                zone.active = actionResult;
+	            });
+	        });
+	    }
 	}
 
 	exports.default = adminCtrl;
@@ -55597,7 +55617,7 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions($index, z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions($index, z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n{{vm.zones | json}}"
+	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n            <td>{{z.id}}</td>\r\n            <td>{{z.name}}</td>\r\n            <td>{{z.description}}</td>\r\n            <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n            <td>\r\n                <div class=\"btn-group\">\r\n                    <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions($index, z.id, 'on')\">On</button>\r\n                    <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions($index, z.id, 'off')\">Off</button>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n    <tfoot>\r\n        <tr>\r\n            <th colspan=\"4\"></th>\r\n            <th>All</th>\r\n        </tr>\r\n        <tr>\r\n            <td colspan=\"4\"></td>\r\n            <td>\r\n                <div class=\"btn-group\">\r\n                    <button class=\"btn btn-default btn-sm\" ng-click=\"vm.allPinActions('on')\">On</button>\r\n                    <button class=\"btn btn-default btn-sm\" ng-click=\"vm.allPinActions('off')\">Off</button>\r\n                </div>\r\n            </td>\r\n        </tr>\r\n    </tfoot>\r\n</table>\r\n{{vm.zones | json}}"
 
 /***/ },
 /* 46 */

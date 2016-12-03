@@ -10,17 +10,32 @@
     </thead>
     <tbody>
         <tr ng-repeat="z in vm.zones">
-           <td>{{z.id}}</td>
-           <td>{{z.name}}</td>
-           <td>{{z.description}}</td>
-           <td><span ng-show="z.active" class="label label-success">On</span><span ng-hide="z.active" class="label label-default">Off</span></td>
-           <td>
-               <div class="button-group">
-                   <button class="btn btn-default btn-sm" ng-disabled="z.active" ng-click="vm.pinActions($index, z.id, 'on')">On</button>
-                   <button class="btn btn-default btn-sm" ng-disabled="!z.active" ng-click="vm.pinActions($index, z.id, 'off')">Off</button>
-               </div>
-           </td>
+            <td>{{z.id}}</td>
+            <td>{{z.name}}</td>
+            <td>{{z.description}}</td>
+            <td><span ng-show="z.active" class="label label-success">On</span><span ng-hide="z.active" class="label label-default">Off</span></td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default btn-sm" ng-disabled="z.active" ng-click="vm.pinActions($index, z.id, 'on')">On</button>
+                    <button class="btn btn-default btn-sm" ng-disabled="!z.active" ng-click="vm.pinActions($index, z.id, 'off')">Off</button>
+                </div>
+            </td>
         </tr>
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="4"></th>
+            <th>All</th>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default btn-sm" ng-click="vm.allPinActions('on')">On</button>
+                    <button class="btn btn-default btn-sm" ng-click="vm.allPinActions('off')">Off</button>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
 </table>
 {{vm.zones | json}}
