@@ -84,9 +84,13 @@
 
 	var _weather2 = _interopRequireDefault(_weather);
 
+	var _gpio = __webpack_require__(32);
+
+	var _gpio2 = _interopRequireDefault(_gpio);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_angular2.default.module('app', [_angularUiRouter2.default, _angularAnimate2.default, _angularResource2.default]).config(_app2.default).service('weatherSvc', _weather2.default).controller('adminCtrl', _admin2.default);
+	_angular2.default.module('app', [_angularUiRouter2.default, _angularAnimate2.default, _angularResource2.default]).config(_app2.default).service('weatherSvc', _weather2.default).service('gpioSvc', _gpio2.default).controller('adminCtrl', _admin2.default);
 
 /***/ },
 /* 1 */
@@ -42808,11 +42812,60 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
-	adminCtrl.$inject = [];
+	adminCtrl.$inject = ['gpioSvc'];
 
-	function adminCtrl() {}
+	function adminCtrl(gpioSvc) {
+	    var vm = this;
+	    vm.pinActions = pinActions;
+	    vm.zones = [{
+	        id: 1,
+	        name: 'Zone 1',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 2,
+	        name: 'Zone 2',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 3,
+	        name: 'Zone 3',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 4,
+	        name: 'Zone 4',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 5,
+	        name: 'Zone 5',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 6,
+	        name: 'Zone 6',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 7,
+	        name: 'Zone 7',
+	        description: 'a Zone',
+	        active: false
+	    }, {
+	        id: 8,
+	        name: 'Zone 8',
+	        description: 'a Zone',
+	        active: false
+	    }];
+	    function pinActions(pin, action) {
+	        return gpioSvc.set({ pin: pin, action: action }).then(function (res) {
+	            console.log(res);
+	        });
+	    }
+	}
 
 	exports.default = adminCtrl;
 
@@ -42838,7 +42891,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>1</td><td>Hydro Zone</td><td><h4 style=\"padding: 0px; margin: 0px;\"><span class=\"label label-success\" ng-show=\"vm.zoneActive\">On</span><span class=\"label label-default\" ng-show=\"!vm.zoneActive\">Off</span></h4></td><td><div class=\"btn-group\"><button class=\"btn btn-default btn-sm\" ng-disabled=\"vm.zoneActive\" ng-click=\"vm.zoneActive = true\">On</button><button class=\"btn btn-default btn-sm\" ng-click=\"vm.zoneActive = false\"ng-disabled=\"!vm.zoneActive\">Off</button></div></td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions(z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions(z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
 
 /***/ },
 /* 31 */
@@ -42854,6 +42907,25 @@
 	function weatherSvc($resource) {
 	    return $resource('/api/weather', null, {
 	        'check': { method: 'POST' }
+	    });
+	}
+
+	exports.default = weatherSvc;
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	gpioSvc.$inject = ['$resource'];
+
+	function gpioSvc($resource) {
+	    return $resource('/api/gpio/:pin/:acion', { pin: '@pin', action: '@action' }, {
+	        'set': { method: 'POST' }
 	    });
 	}
 

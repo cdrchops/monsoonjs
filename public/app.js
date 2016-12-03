@@ -13,6 +13,7 @@ import routes from './app.routes';
 import './components/home/home.controller';
 import adminCtrl from './components/admin/admin.controller';
 import weatherSvc from './services/weather.svc';
+import gpioSvc from './services/gpio.svc';
 
 angular.module('app', [uirouter, ngAnimate, ngResource])
-  .config(routes).service('weatherSvc', weatherSvc).controller('adminCtrl', adminCtrl);
+  .config(routes).service('weatherSvc', weatherSvc).service('gpioSvc', gpioSvc).controller('adminCtrl', adminCtrl);
