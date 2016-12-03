@@ -10,7 +10,7 @@ module.exports = {
         new CopyWebpackPlugin([{
                     from: 'public/img',
                     to:'img'
-                }])
+                }, {from: 'public/vendor', to:'vendor'}, {from:'node_modules/weather-icons/font/', to:'./public/fonts'}])
     ],
     module: {
         loaders: [{
