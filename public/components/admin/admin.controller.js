@@ -54,9 +54,14 @@ function adminCtrl (gpioSvc) {
         active: false
     }
     ];
-    function pinActions(pin, action){
-        return gpioSvc.set({pin:pin, action:action}).then((res)=>{
+    function pinActions(index, pin, action){
+        return gpioSvc.set({pin:pin, action:action}).$promise.then((res)=>{
             console.log(res);
+            let actionResult = true;
+            if(action.toLowerCase() === 'off'){
+                actionResult = false;
+            }
+            vm.zones[index].active = actionResult;
         })
     }
 }

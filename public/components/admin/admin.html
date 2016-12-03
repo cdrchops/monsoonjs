@@ -16,8 +16,8 @@
            <td><span ng-show="z.active" class="label label-success">On</span><span ng-hide="z.active" class="label label-default">Off</span></td>
            <td>
                <div class="button-group">
-                   <button class="btn btn-default btn-sm" ng-disabled="z.active" ng-click="vm.pinActions(z.id, 'on')">On</button>
-                   <button class="btn btn-default btn-sm" ng-disabled="!z.active" ng-click="vm.pinActions(z.id, 'off')">Off</button>
+                   <button class="btn btn-default btn-sm" ng-disabled="z.active" ng-click="vm.pinActions($index, z.id, 'on')">On</button>
+                   <button class="btn btn-default btn-sm" ng-disabled="!z.active" ng-click="vm.pinActions($index, z.id, 'off')">Off</button>
                </div>
            </td>
         </tr>

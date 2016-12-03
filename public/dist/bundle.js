@@ -42860,9 +42860,14 @@
 	        description: 'a Zone',
 	        active: false
 	    }];
-	    function pinActions(pin, action) {
-	        return gpioSvc.set({ pin: pin, action: action }).then(function (res) {
+	    function pinActions(index, pin, action) {
+	        return gpioSvc.set({ pin: pin, action: action }).$promise.then(function (res) {
 	            console.log(res);
+	            var actionResult = true;
+	            if (action.toLowerCase() === 'off') {
+	                actionResult = false;
+	            }
+	            vm.zones[index].active = actionResult;
 	        });
 	    }
 	}
@@ -42891,7 +42896,7 @@
 /* 30 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions(z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions(z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions($index, z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions($index, z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
 
 /***/ },
 /* 31 */
