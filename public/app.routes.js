@@ -20,7 +20,7 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
       'nav': {
         template: require('./components/app/nav.html')
       },
-      'opt':{
+      'opt': {
         template: require('./components/home/weather.html')
       }
     },
@@ -30,15 +30,15 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
     url: '/admin',
     views: {
       'main': {
-        template: require('./components/admin/admin.html')
+        template: require('./components/admin/admin.html'),
+        controller: adminCtrl,
+        controllerAs: 'vm'
       },
       'nav': {
         template: require('./components/app/nav.html')
       },
-      'opt':{
-      }
+      'opt': {}
     },
-    controller: adminCtrl,
-    controllerAs: 'vm'
+
   });
 }

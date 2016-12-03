@@ -55377,15 +55377,16 @@
 	    url: '/admin',
 	    views: {
 	      'main': {
-	        template: __webpack_require__(45)
+	        template: __webpack_require__(45),
+	        controller: _admin2.default,
+	        controllerAs: 'vm'
 	      },
 	      'nav': {
 	        template: __webpack_require__(43)
 	      },
 	      'opt': {}
-	    },
-	    controller: _admin2.default,
-	    controllerAs: 'vm'
+	    }
+
 	  });
 	}
 
@@ -55563,6 +55564,7 @@
 	            vm.zones[index].active = actionResult;
 	        });
 	    }
+	    console.log(vm.zones);
 	}
 
 	exports.default = adminCtrl;
@@ -55595,7 +55597,7 @@
 /* 45 */
 /***/ function(module, exports) {
 
-	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions($index, z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions($index, z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Description</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr ng-repeat=\"z in vm.zones\">\r\n           <td>{{z.id}}</td>\r\n           <td>{{z.name}}</td>\r\n           <td>{{z.description}}</td>\r\n           <td><span ng-show=\"z.active\" class=\"label label-success\">On</span><span ng-hide=\"z.active\" class=\"label label-default\">Off</span></td>\r\n           <td>\r\n               <div class=\"button-group\">\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"z.active\" ng-click=\"vm.pinActions($index, z.id, 'on')\">On</button>\r\n                   <button class=\"btn btn-default btn-sm\" ng-disabled=\"!z.active\" ng-click=\"vm.pinActions($index, z.id, 'off')\">Off</button>\r\n               </div>\r\n           </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n{{vm.zones | json}}"
 
 /***/ },
 /* 46 */

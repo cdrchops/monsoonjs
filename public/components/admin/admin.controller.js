@@ -64,6 +64,8 @@ function adminCtrl (gpioSvc) {
             vm.zones[index].active = actionResult;
         })
     }
+    console.log(vm.zones);
+
 }
 
 export default adminCtrl
