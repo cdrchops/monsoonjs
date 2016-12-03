@@ -8,4 +8,4 @@ function gpioSvc($resource){
     })
 }
 
-export default weatherSvc
+export default gpioSvc
