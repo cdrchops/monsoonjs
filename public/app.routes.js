@@ -14,18 +14,30 @@ export default function routing($urlRouterProvider, $locationProvider, $statePro
   }).state('app.home', {
     url: '/',
     views: {
-      '': {
+      'main': {
         template: require('./components/home/home.html')
       },
-      nav: {
+      'nav': {
         template: require('./components/app/nav.html')
+      },
+      'opt':{
+        template: require('./components/home/weather.html')
       }
     },
     controller: homeCtrl,
     controllerAs: 'vm'
   }).state('app.admin', {
     url: '/admin',
-    template: require('./components/admin/admin.html'),
+    views: {
+      'main': {
+        template: require('./components/admin/admin.html')
+      },
+      'nav': {
+        template: require('./components/app/nav.html')
+      },
+      'opt':{
+      }
+    },
     controller: adminCtrl,
     controllerAs: 'vm'
   });

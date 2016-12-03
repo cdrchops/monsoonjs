@@ -1,12 +1,14 @@
+import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.css';
 import './animate.css';
 import './monsoon.css';
 import './bstrap_or.css';
-
+import 'bootstrap';
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
 import ngResource from 'angular-resource';
+
 
 import routes from './app.routes';
 

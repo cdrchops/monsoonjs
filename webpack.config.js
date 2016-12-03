@@ -1,4 +1,5 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
     entry: './public/app.js',
@@ -8,9 +9,19 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([{
-                    from: 'public/img',
-                    to:'img'
-                }, {from: 'public/vendor', to:'vendor'}, {from:'node_modules/weather-icons/font/', to:'./public/fonts'}])
+            from: 'public/img',
+            to: 'img'
+        }, {
+            from: 'public/vendor',
+            to: 'vendor'
+        }, {
+            from: 'node_modules/weather-icons/font/',
+            to: './public/fonts'
+        }]),
+        new webpack.ProvidePlugin({
+              $: "jquery",
+           jQuery: "jquery"
+        })
     ],
     module: {
         loaders: [{

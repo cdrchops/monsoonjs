@@ -1,38 +1,41 @@
-
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,800,900');
-
-html,body{
-    margin:0;
-    height:100%;
-    overflow:hidden;
-}
 body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-family: 'Raleway', sans-serif;
 }
-.bg-image{
-    min-height:100%;
-    min-width:100%;
-    height:auto;
-    width:auto;
-    position:absolute;
-    top:-100%; bottom:-100%;
-    left:-100%; right:-100%;
-    margin:auto;
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     z-index: -1;
 }
 
 .monsoon-panel {
-    padding:0px 0px 10px 0px;
-   background-color: white;
-   border: 1px solid silver;
-    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
--moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
-   
+    padding: 0px 0px 10px 0px;
+    background-color: white;
+    border: 1px solid silver;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, .2);
 }
 
+
 /* when hiding the picture */
-.bg-image .ng-hide-add         { animation:.5s fadeOut ease; }
+
+.bg-image .ng-hide-add {
+    animation: .5s fadeOut ease;
+}
+
 
 /* when showing the picture */
-.bg-image .ng-hide-remove      { animation:0.5s fadeIn; }
+
+.bg-image .ng-hide-remove {
+    animation: 0.5s fadeIn;
+}
