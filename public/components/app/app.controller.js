@@ -77,7 +77,7 @@ export default function appCtrl($interval, $timeout, weatherSvc) {
 
     $interval(() => {
         changeBackground()
-    }, 10000);
+    }, 60000);
 
     $interval(() => {
         getWeather();

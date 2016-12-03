@@ -48,41 +48,45 @@
 
 	__webpack_require__(1);
 
-	__webpack_require__(16);
+	__webpack_require__(10);
 
-	__webpack_require__(18);
+	__webpack_require__(12);
 
-	__webpack_require__(35);
+	__webpack_require__(14);
 
-	var _angular = __webpack_require__(20);
+	var _angular = __webpack_require__(16);
 
 	var _angular2 = _interopRequireDefault(_angular);
 
-	var _angularUiRouter = __webpack_require__(22);
+	var _angularUiRouter = __webpack_require__(18);
 
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-	var _angularAnimate = __webpack_require__(23);
+	var _angularAnimate = __webpack_require__(19);
 
 	var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-	var _angularResource = __webpack_require__(25);
+	var _angularResource = __webpack_require__(21);
 
 	var _angularResource2 = _interopRequireDefault(_angularResource);
 
-	var _app = __webpack_require__(27);
+	var _app = __webpack_require__(23);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	__webpack_require__(28);
+	__webpack_require__(24);
 
-	var _weather = __webpack_require__(32);
+	var _admin = __webpack_require__(26);
+
+	var _admin2 = _interopRequireDefault(_admin);
+
+	var _weather = __webpack_require__(31);
 
 	var _weather2 = _interopRequireDefault(_weather);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_angular2.default.module('app', [_angularUiRouter2.default, _angularAnimate2.default, _angularResource2.default]).config(_app2.default).service('weatherSvc', _weather2.default);
+	_angular2.default.module('app', [_angularUiRouter2.default, _angularAnimate2.default, _angularResource2.default]).config(_app2.default).service('weatherSvc', _weather2.default).controller('adminCtrl', _admin2.default);
 
 /***/ },
 /* 1 */
@@ -463,19 +467,13 @@
 
 
 /***/ },
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(17);
+	var content = __webpack_require__(11);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(9)(content, {});
@@ -495,7 +493,7 @@
 	}
 
 /***/ },
-/* 17 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -509,13 +507,13 @@
 
 
 /***/ },
-/* 18 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(19);
+	var content = __webpack_require__(13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(9)(content, {});
@@ -535,7 +533,7 @@
 	}
 
 /***/ },
-/* 19 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -543,21 +541,61 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Raleway:400,700,800,900);", ""]);
 
 	// module
-	exports.push([module.id, "\r\nhtml,body{\r\n    margin:0;\r\n    height:100%;\r\n    overflow:hidden;\r\n}\r\nbody {\r\n    font-family: 'Raleway', sans-serif;\r\n}\r\n.bg-image{\r\n    min-height:100%;\r\n    min-width:100%;\r\n    height:auto;\r\n    width:auto;\r\n    position:absolute;\r\n    top:-100%; bottom:-100%;\r\n    left:-100%; right:-100%;\r\n    margin:auto;\r\n    z-index: -1;\r\n}\r\n\r\n.monsoon-panel {\r\n    padding:0px 0px 10px 0px;\r\n   background-color: white;\r\n   border: 1px solid silver;\r\n    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\n-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\nbox-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\n   \r\n}\r\n\r\n/* when hiding the picture */\r\n.ng-hide-add         { animation:.5s fadeOut ease; }\r\n\r\n/* when showing the picture */\r\n.ng-hide-remove      { animation:0.5s fadeIn; }", ""]);
+	exports.push([module.id, "\r\nhtml,body{\r\n    margin:0;\r\n    height:100%;\r\n    overflow:hidden;\r\n}\r\nbody {\r\n    font-family: 'Raleway', sans-serif;\r\n}\r\n.bg-image{\r\n    min-height:100%;\r\n    min-width:100%;\r\n    height:auto;\r\n    width:auto;\r\n    position:absolute;\r\n    top:-100%; bottom:-100%;\r\n    left:-100%; right:-100%;\r\n    margin:auto;\r\n    z-index: -1;\r\n}\r\n\r\n.monsoon-panel {\r\n    padding:0px 0px 10px 0px;\r\n   background-color: white;\r\n   border: 1px solid silver;\r\n    -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\n-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\nbox-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);\r\n   \r\n}\r\n\r\n/* when hiding the picture */\r\n.bg-image .ng-hide-add         { animation:.5s fadeOut ease; }\r\n\r\n/* when showing the picture */\r\n.bg-image .ng-hide-remove      { animation:0.5s fadeIn; }", ""]);
 
 	// exports
 
 
 /***/ },
-/* 20 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(21);
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(15);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(9)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./bstrap_or.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./bstrap_or.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(3)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".navbar-default {\r\n  background-color: #ffffff;\r\n  border-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-brand {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-brand:hover,\r\n.navbar-default .navbar-brand:focus {\r\n  color: #8e8e8e;\r\n}\r\n.navbar-default .navbar-text {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > a {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > a:hover,\r\n.navbar-default .navbar-nav > li > a:focus {\r\n  color: #8e8e8e;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu {\r\n  background-color: #ffffff;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a,\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > .active > a,\r\n.navbar-default .navbar-nav > .active > a:hover,\r\n.navbar-default .navbar-nav > .active > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > .open > a,\r\n.navbar-default .navbar-nav > .open > a:hover,\r\n.navbar-default .navbar-nav > .open > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle {\r\n  border-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle:hover,\r\n.navbar-default .navbar-toggle:focus {\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle .icon-bar {\r\n  background-color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-collapse,\r\n.navbar-default .navbar-form {\r\n  border-color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-link {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-link:hover {\r\n  color: #8e8e8e;\r\n}\r\n\r\n@media (max-width: 767px) {\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a {\r\n    color: #6f6f6f;\r\n  }\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {\r\n    color: #8e8e8e;\r\n  }\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\r\n    color: #8e8e8e;\r\n    background-color: #dddcdd;\r\n  }\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(17);
 	module.exports = angular;
 
 
 /***/ },
-/* 21 */
+/* 17 */
 /***/ function(module, exports) {
 
 	/**
@@ -32946,7 +32984,7 @@
 	!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ },
-/* 22 */
+/* 18 */
 /***/ function(module, exports) {
 
 	/**
@@ -37560,15 +37598,15 @@
 	})(window, window.angular);
 
 /***/ },
-/* 23 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(24);
+	__webpack_require__(20);
 	module.exports = 'ngAnimate';
 
 
 /***/ },
-/* 24 */
+/* 20 */
 /***/ function(module, exports) {
 
 	/**
@@ -41726,15 +41764,15 @@
 
 
 /***/ },
-/* 25 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(26);
+	__webpack_require__(22);
 	module.exports = 'ngResource';
 
 
 /***/ },
-/* 26 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -42601,7 +42639,7 @@
 
 
 /***/ },
-/* 27 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42611,36 +42649,51 @@
 	});
 	exports.default = routing;
 
-	var _home = __webpack_require__(28);
+	var _home = __webpack_require__(24);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _app = __webpack_require__(29);
+	var _app = __webpack_require__(25);
 
 	var _app2 = _interopRequireDefault(_app);
+
+	var _admin = __webpack_require__(26);
+
+	var _admin2 = _interopRequireDefault(_admin);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	routing.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
 
 	function routing($urlRouterProvider, $locationProvider, $stateProvider) {
-	  $locationProvider.html5Mode(true);
 	  $urlRouterProvider.otherwise('/');
 	  $stateProvider.state('app', {
 	    abstract: true,
-	    template: __webpack_require__(30),
+	    template: __webpack_require__(27),
 	    controller: _app2.default,
 	    controllerAs: 'vm'
 	  }).state('app.home', {
 	    url: '/',
-	    template: __webpack_require__(31),
+	    views: {
+	      '': {
+	        template: __webpack_require__(28)
+	      },
+	      nav: {
+	        template: __webpack_require__(29)
+	      }
+	    },
 	    controller: _home2.default,
+	    controllerAs: 'vm'
+	  }).state('app.admin', {
+	    url: '/admin',
+	    template: __webpack_require__(30),
+	    controller: _admin2.default,
 	    controllerAs: 'vm'
 	  });
 	}
 
 /***/ },
-/* 28 */
+/* 24 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42655,7 +42708,7 @@
 	}
 
 /***/ },
-/* 29 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42741,7 +42794,7 @@
 
 	    $interval(function () {
 	        changeBackground();
-	    }, 10000);
+	    }, 60000);
 
 	    $interval(function () {
 	        getWeather();
@@ -42749,19 +42802,46 @@
 	}
 
 /***/ },
-/* 30 */
+/* 26 */
 /***/ function(module, exports) {
 
-	module.exports = "<img class=\"bg-image\" ng-show=\"vm.imgLoaded\" ng-src=\"{{vm.bgImg}}\">\r\n<div id=\"monsoon-main\">\r\n    <div class=\"container\">\r\n\r\n        <div class=\"row monsoon-panel\">\r\n            <div class=\"col-xs-12\">\r\n                <div class=\"row\">\r\n                    <nav class=\"navbar navbar-default\" style=\"border-radius:0px\">\r\n                        <div class=\"container-fluid\">\r\n                            <div class=\"navbar-header\">\r\n                                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                                    aria-controls=\"navbar\">\r\n              <span class=\"sr-only\">Toggle navigation</span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n            </button>\r\n                            </div>\r\n                            <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n                                <ul class=\"nav navbar-nav\">\r\n                                    <li class=\"active\"><a href=\"#\">Home</a></li>\r\n                                    <li><a href=\"#\">About</a></li>\r\n                                    <li><a href=\"#\">Contact</a></li>\r\n                                    <li class=\"dropdown\">\r\n                                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\r\n                                        <ul class=\"dropdown-menu\">\r\n                                            <li><a href=\"#\">Action</a></li>\r\n                                            <li><a href=\"#\">Another action</a></li>\r\n                                            <li><a href=\"#\">Something else here</a></li>\r\n                                            <li role=\"separator\" class=\"divider\"></li>\r\n                                            <li class=\"dropdown-header\">Nav header</li>\r\n                                            <li><a href=\"#\">Separated link</a></li>\r\n                                            <li><a href=\"#\">One more separated link</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                </ul>\r\n                                <ul class=\"nav navbar-nav navbar-right\">\r\n                                    <li class=\"active\"><a href=\"./\">Default <span class=\"sr-only\">(current)</span></a></li>\r\n                                    <li><a href=\"../navbar-static-top/\">Static top</a></li>\r\n                                    <li><a href=\"../navbar-fixed-top/\">Fixed top</a></li>\r\n                                </ul>\r\n                            </div>\r\n                            <!--/.nav-collapse -->\r\n                        </div>\r\n                        <!--/.container-fluid -->\r\n                    </nav>\r\n                </div>\r\n                <div class=\"row\">\r\n\r\n                    <div class=\"col-xs-6\"><img src=\"img/monsoon_logo.png\"></div>\r\n                    <div class=\"col-xs-6\">\r\n                        <div class=\"panel panel-default\" style=\"border-radius: 0px;\">\r\n                            <div class=\"panel-body\">\r\n                                <div class=\"media\">\r\n                                    <div class=\"media-left\">\r\n                                        <a href=\"#\">\r\n                                            <i ng-class=\"vm.currentIcon\" style=\"font-size: 3em; padding-top:5px;\"></i>\r\n                                        </a>\r\n                                    </div>\r\n                                    <div class=\"media-body\">\r\n                                        <h4 class=\"media-heading\">Current Weather</h4>\r\n                                        <div ng-show=\"vm.weather.currently\">\r\n                                            <p>\r\n                                                <span>Temp: {{vm.weather.currently.temperature}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Humidity: {{((vm.weather.currently.humidity * 100).toFixed(2))}}<i class=\"wi wi-humidity\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Feels: {{vm.weather.currently.temperature}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n\r\n                                            </p>\r\n                                            <p>\r\n                                                <span>Dew: {{vm.weather.currently.dewPoint}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Wind:  {{vm.weather.currently.windSpeed}} MPH <i ng-if=\"vm.weather.currently\" ng-class=\"vm.windDir(vm.weather.currently.windBearing)\" style=\"font-size:1.5em;\"></i></span>\r\n                                            </p>\r\n                                            <p>\r\n                                                <span>Barometer: {{vm.weather.currently.pressure}} <i class=\"wi wi-barometer\" style=\"font-size:1.5em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Chance of Rain: {{vm.weather.currently.precipProbability + '%'}} <i class=\"wi wi-rain\" style=\"font-size: 1.5em;\"></i></span>\r\n                                            </p>\r\n                                            <p> Summary: {{vm.weather.currently.summary}}</p>\r\n\r\n                                            <p>Updated: {{vm.weather.currently.time | date : 'medium'}}</p>\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <button class=\"btn btn-default\" style=\"border-radius:0px;\">Weather Details</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div ui-view></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	adminCtrl.$inject = [];
+
+	function adminCtrl() {}
+
+	exports.default = adminCtrl;
 
 /***/ },
-/* 31 */
+/* 27 */
+/***/ function(module, exports) {
+
+	module.exports = "<img class=\"bg-image\" ng-show=\"vm.imgLoaded\" ng-src=\"{{vm.bgImg}}\">\r\n<div id=\"monsoon-main\">\r\n    <div class=\"container\">\r\n\r\n        <div class=\"row monsoon-panel\">\r\n            <div class=\"col-xs-12\">\r\n                <div class=\"row\">\r\n                    <ui-view=\"nav\"></ui-view>\r\n                    <nav class=\"navbar navbar-default\" style=\"border-radius:0px\">\r\n                        <div class=\"container-fluid\">\r\n                            <div class=\"navbar-header\">\r\n                                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                                    aria-controls=\"navbar\">\r\n              <span class=\"sr-only\">Toggle navigation</span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n            </button>\r\n                            </div>\r\n                            <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n                                <ul class=\"nav navbar-nav\">\r\n                                    <li class=\"active\"><a href=\"#\">Home</a></li>\r\n                                    <li><a href=\"#\">About</a></li>\r\n                                    <li><a href=\"#\">Contact</a></li>\r\n                                    <li class=\"dropdown\">\r\n                                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\r\n                                        <ul class=\"dropdown-menu\">\r\n                                            <li><a href=\"#\">Action</a></li>\r\n                                            <li><a href=\"#\">Another action</a></li>\r\n                                            <li><a href=\"#\">Something else here</a></li>\r\n                                            <li role=\"separator\" class=\"divider\"></li>\r\n                                            <li class=\"dropdown-header\">Nav header</li>\r\n                                            <li><a href=\"#\">Separated link</a></li>\r\n                                            <li><a href=\"#\">One more separated link</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                </ul>\r\n                                <ul class=\"nav navbar-nav navbar-right\">\r\n                                    <li class=\"active\"><a href=\"./\">Default <span class=\"sr-only\">(current)</span></a></li>\r\n                                    <li><a href=\"../navbar-static-top/\">Static top</a></li>\r\n                                    <li><a href=\"../navbar-fixed-top/\">Fixed top</a></li>\r\n                                </ul>\r\n                            </div>\r\n                            <!--/.nav-collapse -->\r\n                        </div>\r\n                        <!--/.container-fluid -->\r\n                    </nav>\r\n                </div>\r\n                <div class=\"row\">\r\n\r\n                    <div class=\"col-xs-6\"><img src=\"img/monsoon_logo.png\"></div>\r\n                    <div class=\"col-xs-6\">\r\n                        <div class=\"panel panel-default\" style=\"border-radius: 0px;\">\r\n                            <div class=\"panel-body\">\r\n                                <div class=\"media\">\r\n                                    <div class=\"media-left\">\r\n                                        <a href=\"#\">\r\n                                            <i ng-class=\"vm.currentIcon\" style=\"font-size: 3em; padding-top:5px;\"></i>\r\n                                        </a>\r\n                                    </div>\r\n                                    <div class=\"media-body\">\r\n                                        <h4 class=\"media-heading\">Current Weather</h4>\r\n                                        <div ng-show=\"vm.weather.currently\">\r\n                                            <p>\r\n                                                <span>Temp: {{vm.weather.currently.temperature}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Humidity: {{((vm.weather.currently.humidity * 100).toFixed(2))}}<i class=\"wi wi-humidity\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Feels: {{vm.weather.currently.temperature}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n\r\n                                            </p>\r\n                                            <p>\r\n                                                <span>Dew: {{vm.weather.currently.dewPoint}}<i class=\"wi wi-fahrenheit\" style=\"font-size:1.2em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Wind:  {{vm.weather.currently.windSpeed}} MPH <i ng-if=\"vm.weather.currently\" ng-class=\"vm.windDir(vm.weather.currently.windBearing)\" style=\"font-size:1.5em;\"></i></span>\r\n                                            </p>\r\n                                            <p>\r\n                                                <span>Barometer: {{vm.weather.currently.pressure}} <i class=\"wi wi-barometer\" style=\"font-size:1.5em;\"></i></span>\r\n                                                <span style=\"margin-left: 20px;\">Chance of Rain: {{vm.weather.currently.precipProbability + '%'}} <i class=\"wi wi-rain\" style=\"font-size: 1.5em;\"></i></span>\r\n                                            </p>\r\n                                            <p> Summary: {{vm.weather.currently.summary}}</p>\r\n\r\n                                            <p>Updated: {{vm.weather.currently.time | date : 'medium'}}</p>\r\n                                        </div>\r\n\r\n                                    </div>\r\n                                </div>\r\n                                <hr>\r\n                                <button class=\"btn btn-default\" style=\"border-radius:0px;\">Weather Details</button>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <div ui-view></div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ },
+/* 28 */
 /***/ function(module, exports) {
 
 	module.exports = "<h4>Current System Status</h4>\r\n<hr>\r\n\r\n<table class=\"table\" style=\"font-size: 1.5em;\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th><th>Name</th><th>Duration</th><th>Status</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>1</td><td>Front Yard</td><td>10:00</td><td>Running: <img src=\"img/sprinkler.gif\" height=\"40\" width=\"40\" class=\"img-circle\" alt=\"\"></td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n    <div class=\"alert alert-info\">\r\n    Upcoming Schedule..\r\n</div>\r\n</div>"
 
 /***/ },
-/* 32 */
+/* 29 */
+/***/ function(module, exports) {
+
+	module.exports = "<nav class=\"navbar navbar-default\" style=\"border-radius:0px\">\r\n                        <div class=\"container-fluid\">\r\n                            <div class=\"navbar-header\">\r\n                                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\r\n                                    aria-controls=\"navbar\">\r\n              <span class=\"sr-only\">Toggle navigation</span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n              <span class=\"icon-bar\"></span>\r\n            </button>\r\n                            </div>\r\n                            <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n                                <ul class=\"nav navbar-nav\">\r\n                                    <li class=\"active\"><a href=\"#\">Home</a></li>\r\n                                    <li><a href=\"#\">About</a></li>\r\n                                    <li><a href=\"#\">Contact</a></li>\r\n                                    <li class=\"dropdown\">\r\n                                        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\r\n                                        <ul class=\"dropdown-menu\">\r\n                                            <li><a href=\"#\">Action</a></li>\r\n                                            <li><a href=\"#\">Another action</a></li>\r\n                                            <li><a href=\"#\">Something else here</a></li>\r\n                                            <li role=\"separator\" class=\"divider\"></li>\r\n                                            <li class=\"dropdown-header\">Nav header</li>\r\n                                            <li><a href=\"#\">Separated link</a></li>\r\n                                            <li><a href=\"#\">One more separated link</a></li>\r\n                                        </ul>\r\n                                    </li>\r\n                                </ul>\r\n                                <ul class=\"nav navbar-nav navbar-right\">\r\n                                    <li class=\"active\"><a href=\"./\">Default <span class=\"sr-only\">(current)</span></a></li>\r\n                                    <li><a href=\"../navbar-static-top/\">Static top</a></li>\r\n                                    <li><a href=\"../navbar-fixed-top/\">Fixed top</a></li>\r\n                                </ul>\r\n                            </div>\r\n                            <!--/.nav-collapse -->\r\n                        </div>\r\n                        <!--/.container-fluid -->\r\n                    </nav>"
+
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
+
+	module.exports = "<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            <th>Zone</th>\r\n            <th>Name</th>\r\n            <th>Status</th>\r\n            <th>Action</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>1</td><td>Hydro Zone</td><td><h4 style=\"padding: 0px; margin: 0px;\"><span class=\"label label-success\" ng-show=\"vm.zoneActive\">On</span><span class=\"label label-default\" ng-show=\"!vm.zoneActive\">Off</span></h4></td><td><div class=\"btn-group\"><button class=\"btn btn-default btn-sm\" ng-disabled=\"vm.zoneActive\" ng-click=\"vm.zoneActive = true\">On</button><button class=\"btn btn-default btn-sm\" ng-click=\"vm.zoneActive = false\"ng-disabled=\"!vm.zoneActive\">Off</button></div></td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+
+/***/ },
+/* 31 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -42778,48 +42858,6 @@
 	}
 
 	exports.default = weatherSvc;
-
-/***/ },
-/* 33 */,
-/* 34 */,
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(36);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(9)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./bstrap_or.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./bstrap_or.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".navbar-default {\r\n  background-color: #ffffff;\r\n  border-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-brand {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-brand:hover,\r\n.navbar-default .navbar-brand:focus {\r\n  color: #8e8e8e;\r\n}\r\n.navbar-default .navbar-text {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > a {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > a:hover,\r\n.navbar-default .navbar-nav > li > a:focus {\r\n  color: #8e8e8e;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu {\r\n  background-color: #ffffff;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a,\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\r\n.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > .active > a,\r\n.navbar-default .navbar-nav > .active > a:hover,\r\n.navbar-default .navbar-nav > .active > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-nav > .open > a,\r\n.navbar-default .navbar-nav > .open > a:hover,\r\n.navbar-default .navbar-nav > .open > a:focus {\r\n  color: #8e8e8e;\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle {\r\n  border-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle:hover,\r\n.navbar-default .navbar-toggle:focus {\r\n  background-color: #dddcdd;\r\n}\r\n.navbar-default .navbar-toggle .icon-bar {\r\n  background-color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-collapse,\r\n.navbar-default .navbar-form {\r\n  border-color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-link {\r\n  color: #6f6f6f;\r\n}\r\n.navbar-default .navbar-link:hover {\r\n  color: #8e8e8e;\r\n}\r\n\r\n@media (max-width: 767px) {\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a {\r\n    color: #6f6f6f;\r\n  }\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {\r\n    color: #8e8e8e;\r\n  }\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\r\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\r\n    color: #8e8e8e;\r\n    background-color: #dddcdd;\r\n  }\r\n}", ""]);
-
-	// exports
-
 
 /***/ }
 /******/ ]);

@@ -32,7 +32,7 @@ box-shadow: 0px 0px 5px 2px rgba(0,0,0,.2);
 }
 
 /* when hiding the picture */
-.ng-hide-add         { animation:.5s fadeOut ease; }
+.bg-image .ng-hide-add         { animation:.5s fadeOut ease; }
 
 /* when showing the picture */
-.ng-hide-remove      { animation:0.5s fadeIn; }
+.bg-image .ng-hide-remove      { animation:0.5s fadeIn; }
